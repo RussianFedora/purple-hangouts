@@ -65,9 +65,6 @@ install -p hangouts16.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/16/%{
 install -p hangouts22.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/22/%{plugin_name}.png
 install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{plugin_name}.png
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %files
 %{_libdir}/purple-2/lib%{plugin_name}.so
 %doc README.md
