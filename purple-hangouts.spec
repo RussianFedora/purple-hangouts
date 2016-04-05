@@ -1,13 +1,13 @@
 %global plugin_name hangouts
 
-%global commit0 0f3cbbdcee508b10bfdfa4fc6c0f6a998b27242c
+%global commit0 bd3b2beaa7c2be3b286fa07fc3a95adaa551f506
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
-%global date 20160403
+%global date 20160405
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 8.%{date}hg%{shortcommit0}%{?dist}
+Release: 9.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
@@ -29,11 +29,12 @@ Requires: %{name} = %{version}-%{release}
 Requires: pidgin
 
 %description
-Adds support for Hangouts to Pidgin, Adium, Finch and other libpurple 
+Adds support for Hangouts to Pidgin, Adium, Finch and other libpurple
 based messengers.
 
 %description -n pidgin-%{plugin_name}
-Adds pixmaps, icons and smileys for Hangouts protocol inplemented by hangouts-purple.
+Adds pixmaps, icons and smileys for Hangouts protocol inplemented by
+hangouts-purple.
 
 %prep
 %autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0}
@@ -65,9 +66,6 @@ install -p hangouts16.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/16/%{
 install -p hangouts22.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/22/%{plugin_name}.png
 install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{plugin_name}.png
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %files
 %{_libdir}/purple-2/lib%{plugin_name}.so
 %doc README.md
@@ -76,6 +74,9 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Tue Apr 05 2016 V1TSK <vitaly@easycoding.org> - 1.0-9.20160405hgbd3b2be
+- Fixed SPEC. Updated to latest snapshot.
+
 * Sun Apr 03 2016 V1TSK <vitaly@easycoding.org> - 1.0-8.20160403hg0f3cbbd
 - Updated to latest snapshot.
 
