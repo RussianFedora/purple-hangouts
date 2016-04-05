@@ -29,11 +29,12 @@ Requires: %{name} = %{version}-%{release}
 Requires: pidgin
 
 %description
-Adds support for Hangouts to Pidgin, Adium, Finch and other libpurple 
+Adds support for Hangouts to Pidgin, Adium, Finch and other libpurple
 based messengers.
 
 %description -n pidgin-%{plugin_name}
-Adds pixmaps, icons and smileys for Hangouts protocol inplemented by hangouts-purple.
+Adds pixmaps, icons and smileys for Hangouts protocol inplemented by
+hangouts-purple.
 
 %prep
 %autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0}
