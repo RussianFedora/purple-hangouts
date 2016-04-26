@@ -75,7 +75,7 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
-* Thu Apr 26 2016 V1TSK <vitaly@easycoding.org> - 1.0-16.20160426hgac1741f
+* Tue Apr 26 2016 V1TSK <vitaly@easycoding.org> - 1.0-16.20160426hgac1741f
 - Updated to latest snapshot.
 
 * Thu Apr 21 2016 V1TSK <vitaly@easycoding.org> - 1.0-15.20160421hg6f76943
