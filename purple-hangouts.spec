@@ -15,7 +15,7 @@ URL: https://bitbucket.org/EionRobb/purple-hangouts/
 Source0: https://bitbucket.org/EionRobb/purple-hangouts/get/%{commit0}.tar.gz#/purple-hangouts-%{shortcommit0}.tar.gz
 
 %if 0%{?fedora}
-Patch0: fix_build_under_fedora.patch
+Patch0: https://github.com/xvitaly/purple-hangouts/raw/master/fix_build_under_fedora.patch
 %endif
 
 BuildRequires: pkgconfig(libprotobuf-c)
