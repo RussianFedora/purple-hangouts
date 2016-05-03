@@ -41,7 +41,7 @@ Adds pixmaps, icons and smileys for Hangouts protocol inplemented by
 hangouts-purple.
 
 %prep
-%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0}
+%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0} -p1
 
 # fix W: wrong-file-end-of-line-encoding
 perl -i -pe 's/\r\n/\n/gs' README.md
