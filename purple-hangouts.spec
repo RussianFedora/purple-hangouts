@@ -1,6 +1,6 @@
 %global plugin_name hangouts
 
-%global commit0 b844c1412376e8aaf28bdc484629f5e1ab69efac
+%global commit0 2631ad294821ed75b48ffbefccaed748b59a8f32
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
 %global date 20160502
@@ -79,8 +79,8 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
-* Mon May 02 2016 V1TSK <vitaly@easycoding.org> - 1.0-17.20160502hgb844c14
-- Updated to latest snapshot.
+* Tue May 03 2016 V1TSK <vitaly@easycoding.org> - 1.0-17.20160502hg2631ad2
+- Updated to latest snapshot. Added patch for Fedora.
 
 * Tue Apr 26 2016 V1TSK <vitaly@easycoding.org> - 1.0-16.20160426hgac1741f
 - Updated to latest snapshot.
