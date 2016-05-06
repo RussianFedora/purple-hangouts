@@ -1,10 +1,7 @@
 purple-hangouts
 ================
 
- * Название:			purple-hangouts
- * Мейнтейнер:			Vitaly Zaitsev
- * Репозиторий:			russianfedora-free
- * Почему не в апстриме:	??
- * Комментарий:			Добавляет поддержку протокола Google Hangouts в Pidgin и другие
-				клиенты, основанные на библиотеке libpurple.
- 
+ * Package name:		*purple-hangouts*.
+ * Maintainer:			*Vitaly Zaitsev*.
+ * Repository:			*russianfedora-free*.
+ * Description:			adds support for Hangouts to Pidgin, Adium, Finch and other libpurple based messengers.

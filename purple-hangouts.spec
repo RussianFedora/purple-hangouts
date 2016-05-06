@@ -1,18 +1,22 @@
 %global plugin_name hangouts
 
-%global commit0 a5b0e60a2128ee6ca461124c013a092f2c86d2b8
+%global commit0 4cf1d500a42f9c25fd3de34222421ef1b6eca9ce
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
-%global date 20160410
+%global date 20160505
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 12.%{date}hg%{shortcommit0}%{?dist}
+Release: 19.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
 URL: https://bitbucket.org/EionRobb/purple-hangouts/
 Source0: https://bitbucket.org/EionRobb/purple-hangouts/get/%{commit0}.tar.gz#/purple-hangouts-%{shortcommit0}.tar.gz
+
+%if 0%{?fedora}
+Patch0: https://github.com/xvitaly/purple-hangouts/raw/master/fix_build_under_fedora.patch
+%endif
 
 BuildRequires: pkgconfig(libprotobuf-c)
 BuildRequires: pkgconfig(json-glib-1.0)
@@ -37,7 +41,7 @@ Adds pixmaps, icons and smileys for Hangouts protocol inplemented by
 hangouts-purple.
 
 %prep
-%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0}
+%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0} -p1
 
 # fix W: wrong-file-end-of-line-encoding
 perl -i -pe 's/\r\n/\n/gs' README.md
@@ -75,6 +79,27 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Thu May 05 2016 V1TSK <vitaly@easycoding.org> - 1.0-19.20160505hg4cf1d50
+- Updated to latest snapshot.
+
+* Wed May 04 2016 V1TSK <vitaly@easycoding.org> - 1.0-18.20160504hge8c30b6
+- Updated to latest snapshot.
+
+* Tue May 03 2016 V1TSK <vitaly@easycoding.org> - 1.0-17.20160502hg2631ad2
+- Updated to latest snapshot. Added patch for Fedora.
+
+* Tue Apr 26 2016 V1TSK <vitaly@easycoding.org> - 1.0-16.20160426hgac1741f
+- Updated to latest snapshot.
+
+* Thu Apr 21 2016 V1TSK <vitaly@easycoding.org> - 1.0-15.20160421hg6f76943
+- Updated to latest snapshot.
+
+* Sun Apr 17 2016 V1TSK <vitaly@easycoding.org> - 1.0-14.20160417hg635f50c
+- Updated to latest snapshot.
+
+* Fri Apr 15 2016 V1TSK <vitaly@easycoding.org> - 1.0-13.20160413hg92bfbf1
+- Updated to latest snapshot.
+
 * Sun Apr 10 2016 V1TSK <vitaly@easycoding.org> - 1.0-12.20160410hga5b0e60
 - Updated to latest snapshot.
 
