@@ -1,6 +1,6 @@
 --- a/hangouts_media.c
 +++ b/hangouts_media.c
-@@ -150,7 +150,7 @@
+@@ -240,7 +240,7 @@
  		}
  	} else if (purple_session_type & PURPLE_MEDIA_VIDEO) {
  		return MEDIA_TYPE__MEDIA_TYPE_VIDEO;
@@ -9,7 +9,7 @@
  	} else if (purple_session_type & PURPLE_MEDIA_APPLICATION) {
  		return MEDIA_TYPE__MEDIA_TYPE_DATA;
  #endif
-@@ -253,7 +253,7 @@
+@@ -345,7 +345,7 @@
  					case MEDIA_TYPE__MEDIA_TYPE_BUNDLE:
  						type = PURPLE_MEDIA_VIDEO | PURPLE_MEDIA_AUDIO;
  						break;
@@ -18,7 +18,7 @@
  					case MEDIA_TYPE__MEDIA_TYPE_DATA:
  						type = PURPLE_MEDIA_APPLICATION;
  						break;
-@@ -278,7 +278,7 @@
+@@ -370,7 +370,7 @@
  			}
  			purple_media_set_remote_codecs(hangouts_media->media, "hangout", hangouts_media->who, remote_codecs_list);
  			
@@ -27,7 +27,7 @@
  			if (server_content->n_crypto_param > 0) {
  				MediaCryptoParams *crypto_param = server_content->crypto_param[0];
  				const gchar *crypto_algo;
-@@ -326,7 +326,7 @@
+@@ -418,7 +418,7 @@
  	MediaIceCandidate **ice_candidates;
  	guint n_ice_candidates;
  	GList *purple_candidates;
@@ -36,7 +36,7 @@
  	MediaCryptoParams crypto_param;
  	MediaCryptoParams *crypto_params;
  	gchar *hangouts_crypto_base64, *hangouts_crypto_key;
-@@ -386,7 +386,7 @@
+@@ -478,7 +478,7 @@
  			case PURPLE_MEDIA_NETWORK_PROTOCOL_UDP:
  				ice_candidate->protocol = PROTOCOL__UDP;
  				break;
@@ -45,7 +45,7 @@
  			case PURPLE_MEDIA_NETWORK_PROTOCOL_TCP_PASSIVE:
  			case PURPLE_MEDIA_NETWORK_PROTOCOL_TCP_ACTIVE:
  			case PURPLE_MEDIA_NETWORK_PROTOCOL_TCP_SO:
-@@ -499,7 +499,7 @@
+@@ -591,7 +591,7 @@
  	client_content.n_codec = n_codecs;
  	client_content.codec = codecs;
  	
@@ -54,7 +54,7 @@
  	//Generate a SRTP key
  	g_free(hangouts_media->encryption_key);
  	hangouts_media->encryption_key = g_new0(guchar, SRTP_KEY_LEN);
-@@ -556,7 +556,7 @@
+@@ -648,7 +648,7 @@
  	}
  	g_free(codecs);
  	
@@ -63,3 +63,12 @@
  	g_free(hangouts_crypto_base64);
  	g_free(hangouts_crypto_key);
  #endif
+@@ -918,7 +918,7 @@
+ 		return;
+ 	}
+ 
+-#if PURPLE_VERSION_CHECK(2, 10, 12) || PURPLE_VERSION_CHECK(3, 0, 0)
++#if PURPLE_VERSION_CHECK(2, 10, 11) || PURPLE_VERSION_CHECK(3, 0, 0)
+ 	if (!purple_media_set_send_rtcp_mux(media, "hangout", hangouts_media->who, TRUE)) {
+ 		purple_debug_warning("hangouts",
+ 				"Unable to set rtcp mux on stream");
