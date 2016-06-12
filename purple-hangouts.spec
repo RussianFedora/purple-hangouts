@@ -1,13 +1,13 @@
 %global plugin_name hangouts
 
-%global commit0 f36260512effa4d64dc4ab372cdcf78cfc35d899
+%global commit0 90c515dacdd0226cc1674add439be2c59a16f59a
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
-%global date 20160601
+%global date 20160609
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 25.%{date}hg%{shortcommit0}%{?dist}
+Release: 26.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
@@ -79,6 +79,9 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Sun Jun 12 2016 V1TSK <vitaly@easycoding.org> - 1.0-26.20160609hg90c515d
+- Updated to latest snapshot.
+
 * Mon Jun 06 2016 V1TSK <vitaly@easycoding.org> - 1.0-25.20160601hgf362605
 - Updated to latest snapshot.
 
