@@ -37,7 +37,7 @@ Adds support for Hangouts to Pidgin, Adium, Finch and other libpurple
 based messengers.
 
 %description -n pidgin-%{plugin_name}
-Adds pixmaps, icons and smileys for Hangouts protocol inplemented by
+Adds pixmaps, icons and smileys for Hangouts protocol implemented by
 hangouts-purple.
 
 %prep
