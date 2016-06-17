@@ -1,22 +1,18 @@
 %global plugin_name hangouts
 
-%global commit0 90c515dacdd0226cc1674add439be2c59a16f59a
+%global commit0 20594395e06090d06ae626012a2fa6257ae52571
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
-%global date 20160609
+%global date 20160615
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 26.%{date}hg%{shortcommit0}%{?dist}
+Release: 27.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
 URL: https://bitbucket.org/EionRobb/purple-hangouts/
 Source0: https://bitbucket.org/EionRobb/purple-hangouts/get/%{commit0}.tar.gz#/purple-hangouts-%{shortcommit0}.tar.gz
-
-%if 0%{?fedora}
-Patch0: https://github.com/xvitaly/purple-hangouts/raw/master/fix_build_under_fedora.patch
-%endif
 
 BuildRequires: pkgconfig(libprotobuf-c)
 BuildRequires: pkgconfig(json-glib-1.0)
@@ -41,7 +37,7 @@ Adds pixmaps, icons and smileys for Hangouts protocol implemented by
 hangouts-purple.
 
 %prep
-%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0} -p1
+%autosetup -n EionRobb-purple-%{plugin_name}-%{archcommit0}
 
 # fix W: wrong-file-end-of-line-encoding
 perl -i -pe 's/\r\n/\n/gs' README.md
@@ -75,6 +71,9 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Fri Jun 17 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-27.20160615hg2059439
+- Updated to latest snapshot. Removed patch.
+
 * Sun Jun 12 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-26.20160609hg90c515d
 - Updated to latest snapshot. Removed empty configure script.
 
