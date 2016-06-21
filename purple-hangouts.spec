@@ -1,13 +1,13 @@
 %global plugin_name hangouts
 
-%global commit0 20594395e06090d06ae626012a2fa6257ae52571
+%global commit0 38f0731553088f59039008e98d5e3d438bd3e3be
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global archcommit0 %(c=%{commit0}; echo ${c:0:12})
-%global date 20160615
+%global date 20160621
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 27.%{date}hg%{shortcommit0}%{?dist}
+Release: 29.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
@@ -44,6 +44,7 @@ perl -i -pe 's/\r\n/\n/gs' README.md
 
 %build
 export CFLAGS="%{optflags}"
+export LDFLAGS="%{__global_ldflags}"
 %make_build
 
 %install
@@ -71,6 +72,12 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Tue Jun 21 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-29.20160621hg38f0731
+- Added missing LDFLAGS to %build.
+
+* Tue Jun 21 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-28.20160621hg38f0731
+- Updated to latest Git snapshot.
+
 * Fri Jun 17 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-27.20160615hg2059439
 - Updated to latest snapshot. Removed patch.
 
