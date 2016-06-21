@@ -7,7 +7,7 @@
 
 Name: purple-%{plugin_name}
 Version: 1.0
-Release: 28.%{date}hg%{shortcommit0}%{?dist}
+Release: 29.%{date}hg%{shortcommit0}%{?dist}
 Summary: Hangouts plugin for libpurple
 
 License: GPLv3
@@ -44,6 +44,7 @@ perl -i -pe 's/\r\n/\n/gs' README.md
 
 %build
 export CFLAGS="%{optflags}"
+export LDFLAGS="%{__global_ldflags}"
 %make_build
 
 %install
@@ -71,6 +72,9 @@ install -p hangouts48.png %{buildroot}%{_datadir}/pixmaps/pidgin/protocols/48/%{
 %{_datadir}/pixmaps/pidgin/protocols/*/%{plugin_name}.png
 
 %changelog
+* Tue Jun 21 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-29.20160621hg38f0731
+- Added missing LDFLAGS to %build.
+
 * Tue Jun 21 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0-28.20160621hg38f0731
 - Updated to latest Git snapshot.
 
